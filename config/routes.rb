@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  # GET /
+  root 'static_pages#index'
+
   namespace :admin do
+    get 'control_panel/index'
     get 'static_pages/index'
   end
-
-  root 'static_pages#index'
 
   devise_for :users , :skip => [:sessions, :passwords, :registrations]
   as :user do
